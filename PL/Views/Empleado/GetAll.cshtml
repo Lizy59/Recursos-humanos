@@ -1,0 +1,52 @@
+﻿@model ML.Empleado
+@{
+    ViewBag.Title = "GetAll";
+}
+
+<h2>GetAll</h2>
+<div>
+   
+   @*<a href="@Url.Action("Form", "Empleado")">Agregar empleado</a>*@
+
+    @Html.ActionLink("agrega un empleado","Form","Empleado", new {area ="" }, new {@class="btn btn-primary"} )
+</div>
+
+<table class="table table-danger table-responsive table-striped text-center">
+    <thead class=" table-light">
+        <tr>
+            <th></th>
+            <th>NumeroEmpleado</th>
+            <th>Nombre</th>
+            <th>ApellidoPaterno</th>
+            <th>ApellidoMaterno</th>
+            <th>Email</th>
+            <th>Genero</th>
+            <th>FechaNacimiento</th>
+            <th>Telefono</th>
+            <th>Celular</th>
+            <th>Sueldo</th>
+            <th>NombreDepto</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(ML.Empleado empleado in Model.empleados)
+            {
+            <tr>
+                <td><a class="btn btn-outline-success" href="@Url.Action("Form", "Empleado", new { IdEmpleado = empleado.IdEmpleado })" >Editar</a></td>
+                <td>@empleado.NumeroEmpleado</td>
+                <td>@empleado.Nombre</td>
+                <td>@empleado.ApellidoPaterno</td>
+                <td>@empleado.ApellidoMaterno</td>
+                <td>@empleado.Email</td>
+                <td>@empleado.Genero</td>
+                <td>@empleado.FechaNacimiento</td>
+                <td>@empleado.Telefono</td>
+                <td>@empleado.Celular</td>
+                <td>@empleado.Sueldo</td>
+                <td>@empleado.Depto.NombreDepartamento</td>
+                <td><a class="btn btn-outline-danger" onclick=" return confirm='¿Esta seguro que quiere eliminar el registro?'" href="@Url.Action("Delete", "Empleado", new {IdEmpleado = empleado.IdEmpleado})" >Eliminar</a></td>
+            </tr>
+            }
+    </tbody>
+</table>

@@ -1,0 +1,79 @@
+﻿@model ML.Empleado
+@{
+	ViewBag.Title = "Form";
+}
+
+<h2>Form</h2>
+
+@using (Html.BeginForm("Form", "Empleado", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+{
+	@Html.HiddenFor(model => model.IdEmpleado)
+
+	<div class=" form-control">
+		<div class=" row">
+			<div class="col-3">
+				@Html.LabelFor(model => model.NumeroEmpleado)
+				@Html.TextBoxFor(model => model.NumeroEmpleado)
+			</div>
+			<div class="col-3">
+				@Html.LabelFor(model => model.Nombre)
+				@Html.TextBoxFor(model => model.Nombre)
+			</div>
+		</div>
+		<div class=" row">
+			<div class="col-3">
+				@Html.LabelFor(model => model.ApellidoPaterno)
+				@Html.TextBoxFor(model => model.ApellidoPaterno)
+			</div>
+			<div class="col-3">
+				@Html.LabelFor(model => model.ApellidoMaterno)
+				@Html.TextBoxFor(model => model.ApellidoMaterno)
+			</div>
+		</div>
+		<div class=" row">
+			<div class="col-3">
+				@Html.LabelFor(model => model.Email)
+				@Html.TextBoxFor(model => model.Email)
+			</div>
+			<div class="col-3">
+				@Html.LabelFor(model => model.Genero)
+				@Html.TextBoxFor(model => model.Genero)
+			</div>
+		</div>
+		<div class=" row">
+			<div class="col-3">
+				@Html.LabelFor(model => model.FechaNacimiento)
+				@Html.TextBoxFor(model => model.FechaNacimiento)
+			</div>
+			<div class="col-3">
+				@Html.LabelFor(model => model.Telefono)
+				@Html.TextBoxFor(model => model.Telefono)
+			</div>
+		</div>
+
+		<div class=" row">
+			<div class="col-3">
+				@Html.LabelFor(model => model.Celular)
+				@Html.TextBoxFor(model => model.Celular)
+			</div>
+			<div class="col-3">
+				@Html.LabelFor(model => model.Sueldo)
+				@Html.TextBoxFor(model => model.Sueldo)
+			</div>
+			<div class="col-3">
+				@Html.LabelFor(model => model.Depto.NombreDepartamento)
+				@*@Html.DropDownListFor(model =>model.IdEmpleado, new SelectList (Model.Depto.DepartamentoList, "IdDepartamento", "NombreDepartamento"), "Selecciona una opcion", new {@class=""})*@
+				@Html.TextBoxFor(model => model.Depto.IdDepartamento)
+			</div>
+		</div>
+		<div class="row">
+			<div class=" col-2">
+				<button type="submit" class="btn btn-primary">Guardar</button>
+			</div>
+		</div>
+
+	</div>
+
+}
+
+
